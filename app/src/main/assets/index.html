@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Tatarstan Bridge</title>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+  <header>
+    <h1 id="page-title">The Tatarstan Bridge</h1>
+    <button id="toggle-theme">🌙</button>
+  </header>
+
+  <main id="app-container">
+    
+    <section id="home-view" class="view active">
+      <div class="mobile-menu">
+        <button class="menu-button" data-view="history-view">History</button>
+        <button class="menu-button" data-view="culture-view">Culture</button>
+        <button class="menu-button" data-view="sights-view">Sights</button>
+        <button class="menu-button" data-view="phrasebook-view">Phrases</button>
+        <button class="menu-button" data-view="translator-view">Translator</button>
+      </div>
+    </section>
+
+    <section id="translator-view" class="view" style="display:none;">
+      <div class="mobile-menu">
+          <button class="menu-button back-to-home">Back</button>
+      </div>
+  
+      <div class="translator-container" style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+          <textarea id="translator-input" placeholder="Write text here..." style="width: 100%; height: 100px; border-radius: 12px; padding: 10px; border: 1px solid #ccc; background: var(--bg); color: var(--text);"></textarea>
+          
+          <div class="translator-controls" style="display: flex; justify-content: space-between; gap: 10px;">
+              <select id="lang-select" class="tr-element" style="flex: 1; height: 45px; border-radius: 10px; background: var(--card-bg); color: var(--text);">
+                  <option value="ru|tt">Русский → Татарча</option>
+                  <option value="en|tt">English → Татарча</option>
+                  <option value="tt|ru">Татарча → Русский</option>
+                  <option value="tt|en">Татарча → English</option>
+                  <option value="ru|en">Русский → English</option>
+                  <option value="en|ru">English → Русский</option>
+              </select>
+              <button id="translate-btn" class="menu-button tr-element" style="flex: 1; margin: 0; height: 45px;">Translate</button>
+          </div>
+          
+          <div id="translator-result" class="phrase-card" style="opacity: 1; transform: none; min-height: 50px;">
+              Your result will be here...
+          </div>
+      </div>
+  </section>
+
+    <section id="phrasebook-view" class="view" style="display:none;">
+      <input type="text" id="search-input" placeholder="🔍 Search for a phrase..." />
+      <nav id="phrasebook-topics" class="mobile-menu"></nav>
+      <section id="phrases-container" class="phrases-list"></section>
+    </section>
+    
+    <section id="sights-view" class="view" style="display:none;">
+      <div class="mobile-menu">
+        <button class="menu-button back-to-home">Back</button>
+        <button class="menu-button topic-button" data-topic-category="sights" data-topic-name="kazan">Kazan</button>
+        <button class="menu-button topic-button" data-topic-category="sights" data-topic-name="bolgar">Bolgar</button>
+        <button class="menu-button topic-button" data-topic-category="sights" data-topic-name="sviyazhsk">Sviyazhsk</button>
+        <button class="menu-button topic-button" data-topic-category="sights" data-topic-name="temples">Temples and mosques</button>
+        <button class="menu-button topic-button" data-topic-category="sights" data-topic-name="parks">Parks and museums</button>
+      </div>
+      <section id="sights-container" class="phrases-list"></section>
+    </section>
+
+    <section id="culture-view" class="view" style="display:none;">
+      <div class="mobile-menu">
+        <button class="menu-button back-to-home">Back</button>
+        <button class="menu-button topic-button" data-topic-category="culture" data-topic-name="cuisine">Cuisine</button>
+        <button class="menu-button topic-button" data-topic-category="culture" data-topic-name="crafts">Folk Crafts</button>
+        <button class="menu-button topic-button" data-topic-category="culture" data-topic-name="folklore">Folklore</button>
+        <button class="menu-button topic-button" data-topic-category="culture" data-topic-name="holidays">Holidays</button>
+        <button class="menu-button topic-button" data-topic-category="culture" data-topic-name="modern">Modern Art</button>
+      </div>
+      <section id="culture-container" class="phrases-list"></section>
+    </section>
+
+    <section id="history-view" class="view" style="display:none;">
+      <div class="mobile-menu">
+        <button class="menu-button back-to-home">Back</button>
+        <button class="menu-button topic-button" data-topic-category="history" data-topic-name="centuryX">X Century</button>
+        <button class="menu-button topic-button" data-topic-category="history" data-topic-name="centuryXIII">XIII Century</button>
+        <button class="menu-button topic-button" data-topic-category="history" data-topic-name="centuryXVI">XVI Century</button>
+        <button class="menu-button topic-button" data-topic-category="history" data-topic-name="soviet">Soviet Period</button>
+        <button class="menu-button topic-button" data-topic-category="history" data-topic-name="present">Present Day</button>
+      </div>
+      <section id="history-container" class="phrases-list"></section>
+    </section>
+
+  </main>
+
+  <script src="javascript/index.js"></script>
+</body>
+</html>
